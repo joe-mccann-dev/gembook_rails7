@@ -1,0 +1,14 @@
+<div class="comment-button-container">
+  <% link_text = id.match?(/^.*reply$/) ? 'Reply' : 'Comment' %>
+  <button id="<%= link_text %>-<%= commentable.id %>" class="comment-button"><%=link_text %></button>
+</div>
+<%= form_with(model: [commentable, Comment.new], class: 'comment-box', id: "comment-box-for-commentable-#{link_text}-#{commentable.id}") do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.text_area :content, id: id %>
+  <br>
+  <% if id.match?(/^.*reply$/)%>
+    <%= f.submit "Reply", id: "submit-#{commentable.id}" %>
+  <% else %>
+    <%= f.submit "Comment", id: "submit-#{commentable.id}" %>
+  <% end %>
+<% end %>

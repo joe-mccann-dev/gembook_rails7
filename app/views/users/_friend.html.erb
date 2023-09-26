@@ -1,0 +1,7 @@
+<li class="result">
+  <div class="name-and-icon">
+    <%= render partial: 'user_icon', locals: { user: friend } %>
+    <%= link_to friend.full_name, user_path(friend) %>
+  </div>
+  <%= render partial: 'unfriend_button', locals: { friend: friend } %>
+</li>

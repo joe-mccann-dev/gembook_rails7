@@ -1,0 +1,45 @@
+
+  <h1 class="users-heading"><%= @user.full_name %></h1>
+  <% if profile.profile_picture.present? %>
+    <%= link_to image_tag(profile
+                .profile_picture
+                .representation(resize_to_fit: [300, 300], convert: "png"), alt: 'a user profile picture', class: 'profile-display-photo'),
+              url_for(profile.profile_picture),
+              id: "profile-#{profile.id}-picture" %>
+  <% else %>
+    <% if user_is_current_user?(@user) %>
+      <%= link_to image_tag('blank-profile-picture.png', size: '320x320', class: 'profile-display-photo'),
+                  new_user_profile_path(current_user) %>
+    <% else %>
+      <%= image_tag('blank-profile-picture.png', size: '320x320', class: 'profile-display-photo' )%>
+    <% end %>
+  <% end %>
+  <div class="profile-details">
+    <div class="detail">
+      <p class="category">Nickname</p>
+      <p class="value"><%= profile.nickname %></p>
+    </div>
+    <div class="detail">
+      <p class="category">Current City</p>
+      <p class="value"><%= profile.current_city %></p>
+    </div>
+    <div class="detail">
+      <p class="category">Hometown</p>
+      <p class="value"><%= profile.hometown %></p>
+    </div>
+    <div class="detail">
+      <p class="category">Bio</p>
+      <p class="value"><%= profile.bio %></p>
+    </div>
+  </div>
+  <div class="create-edit-profile">
+    <% if user_is_current_user?(@user) %>
+      <% if !@profile.present? %>
+        <%= link_to "Create Profile", new_user_profile_path(@user) %>
+        <em>You haven't created a profile yet.</em>
+      <% else %>
+        <%= link_to "Edit Profile", edit_user_profile_path(@user) %>
+      <% end %>
+    <% end %>
+  </div>
+

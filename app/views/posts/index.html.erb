@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 class="users-heading">Home</h1>
+  <div class="form-container">
+    <%= render partial: 'posts/post_form' %>
+  </div>
+  <ul class="posts-collection">
+    <%= render partial: 'posts/post', collection: @posts %>
+  </ul>
+  <div class="paginate">
+    <%= paginate @posts %>
+  </div>
+</div>

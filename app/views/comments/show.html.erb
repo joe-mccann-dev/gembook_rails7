@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="posts-collection">
+    <h2 class="thread-heading">Comment Thread</h2>
+    <% if @comment.likers.any? %>
+      <div class="likers">
+        <p class="likers-heading">users who liked this comment</p>
+        <div class="liked-by">
+          <%= render partial: 'liker', collection: @comment.likers %>
+        </div>
+      </div>
+    <% end %>
+    <%= render partial: 'comments/comment', locals: { comment: @comment } %>
+  </div>
+</div>
+
