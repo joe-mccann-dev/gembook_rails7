@@ -20,6 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: localhost
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 development:
   <<: *default
@@ -81,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: gembook_rails7_production
-  username: gembook_rails7
-  password: <%= ENV["GEMBOOK_RAILS7_DATABASE_PASSWORD"] %>
+  database: rails_facebook_production
+  username: rails_facebook
+  password: <%= ENV['RAILS_FACEBOOK_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
