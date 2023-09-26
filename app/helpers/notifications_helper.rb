@@ -1,4 +1,4 @@
-module NotificationHelper
+module NotificationsHelper
 
   def show_notification(notification)
     case notification.object_type
