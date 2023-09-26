@@ -1,0 +1,114 @@
+// Place all the styles related to the comment controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.replies, .post-comments {
+  margin-left: 20px;
+}
+
+.comment-thread {
+  width: 100%
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-likes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.comment-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-content {
+  overflow-wrap: break-word;
+}
+
+.comment-header {
+  background: linear-gradient(to right, var(--gray-blue-transparent), var(--gray-blue));
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 12px;
+}
+.comment-info {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.comment-form {
+  padding: 12px 0;
+  border-bottom: solid var(--gray-blue-transparent) 1px;
+}
+
+.comment-content {
+  margin-left: 8px;
+}
+
+.comment-box {
+  display: none;
+  width: 90%;
+  margin-left: 1rem;
+}
+
+.comment-button-container {
+  margin: 12px;
+}
+
+.comment-button, .toggle-comment-button {
+  padding: 2px 8px;
+  cursor: pointer;
+  background-color: var(--dark-blue);
+  color: var(--cyan);
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+.comment-button:hover, .toggle-comment-button:hover {
+  color: var(--light-blue);
+  transition: color .3s ease-in-out;
+}
+
+.toggle-comment-button {
+  display: flex;
+  align-items: center;
+  margin: 12px;
+}
+
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+// EDIT COMMENT
+
+.edit-comment-container {
+  min-width: 300px;
+
+}
+.commenting-on-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commenting-on {
+  color: var(--cyan);
+  font-size: 1.2rem;
+}
+
+.arrow-down {
+  font-size: 150%;
+  color: var(--cyan);
+  margin-bottom: 12px;
+}

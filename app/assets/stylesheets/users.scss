@@ -1,0 +1,105 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.users-heading {
+  background: linear-gradient(var(--cyan), var(--light-blue));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.user-search-form {
+  display: flex;
+}
+
+.search-and-submit {
+  display: flex;
+  gap: 1rem;
+}
+
+.users-friends {
+  display: flex;
+  flex-direction: column;
+}
+
+.result {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5rem;
+  border-radius: 12px;
+}
+
+.name-and-icon {
+  flex: 1;
+  align-self:center;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.users-heading-button-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;  
+}
+
+.button-container {
+  align-self: center;
+}
+
+.add-friend.button, .unfriend.button {
+  margin-bottom: 0;
+}
+
+.users-friends .result {
+  box-shadow: 0 0 6px 4px var(--gray-blue-transparent);
+}
+
+.add-friend, .unfriend {
+  margin-left: auto;
+  background: linear-gradient(to right, var(--light-blue), var(--cyan));
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 4px 12px;
+  // max-width: 106px;
+}
+
+.add-friend:hover {
+  box-shadow: 0 0 0 2px var(--yellow-orange);
+  transition: box-shadow .3s ease-in-out;
+}
+
+.unfriend:hover {
+  box-shadow: 0 0 0 2px var(--cyan);
+}
+
+.add-friend:focus, .unfriend:focus {
+  box-shadow: 0 0 0 2px var(--yellow-orange)
+}
+
+.add-friend-icon {
+  color: var(--dark-blue);
+  font-size: 200%; 
+}
+
+.add-friend-text {
+  color: var(--dark-blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 800px) {
+  .result {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .users-friends {
+    gap: 1.2rem;
+  }
+}

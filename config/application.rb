@@ -17,6 +17,7 @@ module GembookRails7
     ]
 
     config.active_storage.silence_invalid_content_types_warning = true
+    config.autoload_paths += %W(#{config.root}/lib)
 
     # Configuration for the application, engines, and railties goes here.
     #
