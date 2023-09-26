@@ -13,7 +13,11 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+
+require 'active_storage_validations/matchers'
+
 RSpec.configure do |config|
+  config.include ActiveStorageValidations::Matchers
   config.default_formatter = 'doc'
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
