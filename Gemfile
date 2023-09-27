@@ -77,6 +77,9 @@ group :development do
   gem 'bullet'
   gem "better_errors"
   gem "letter_opener"
+  gem "pry"
+  gem "pry-byebug"
+
 end
 
 group :test do
