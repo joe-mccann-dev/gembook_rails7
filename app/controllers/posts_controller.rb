@@ -54,12 +54,20 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    success_message = 'Post successfully removed.'
+
     if @post.destroy
-      flash[:info] = 'Post successfully removed.'
+      respond_to do |format|
+        format.turbo_stream { flash.now[:info] = success_message }
+        format.html {
+          redirect_to posts_path
+          flash[:success] = success_message
+        }
+      end
     else
+      redirect_to posts_path
       flash[:warning] = "Failed to remove post."
     end
-    redirect_to root_url
   end
 
   def show

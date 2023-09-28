@@ -119,6 +119,12 @@
   padding: 12px;
 }
 
+.edit-delete-post {
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+}
+
 .post-user {
   display: flex;
   flex-direction: column;
