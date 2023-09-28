@@ -22,23 +22,34 @@ class PostsController < ApplicationController
   end
 
   def create
+    success_message = "Post was successfully created"
     if @post.save
       respond_to do |format|
-        format.turbo_stream {}
-        format.html {}
+        format.turbo_stream { flash.now[:success] = success_message }
+        format.html {
+          redirect_to posts_path
+          flash[:success] = success_message
+        }
       end
     else
+      redirect_to posts_path
       flash[:warning] = 'Failed to create post. Please try again.'
     end
   end
 
   def update
+    success_message = "Post was successfully updated"
     if @post.update(post_params)
-      flash[:success] = 'Post successfully edited.'
-      redirect_to post_path(@post)
+      respond_to do |format|
+        format.turbo_stream { flash.now[:success] = success_message }
+        format.html { 
+          redirect_to posts_path
+          flash[:success] = success_message
+        }
+      end
     else
       render :edit
-      flash[:warning] = 'Failed to update post'
+      flash[:warning] = "Failed to update post"
     end
   end
 

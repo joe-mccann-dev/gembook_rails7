@@ -1,5 +1,9 @@
+<%= turbo_stream.replace "flash-message" do %>
+  <%= render "shared/turbo-flash-message" %>
+<% end %>
+
 <%= turbo_stream.prepend "posts-list", class: "posts-collection" do %>
-  <%= turbo_frame_tag dom_id(@post) do %>
+  <%= turbo_frame_tag @post do %>
       <%= render "posts/post", post: @post %>
   <% end %>
-<% end %>
+<% end %> 

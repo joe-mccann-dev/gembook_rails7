@@ -329,21 +329,24 @@ input:hover, textarea:hover {
 
 /* NOTIFICATIONS */
 
-.notification {
- opacity: 1;
- transition: opacity 0.4s ease-in-out;
-}
-
-.notification.fade {
- opacity: 0;
-}
-
 .notification.message, .devise-form-error {
  padding: 0.5rem;
  margin-bottom: 1rem;
  border-radius: 4px;
  text-align: center;
  font-weight: 700;
+}
+
+.notification.message {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.notification.message.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
 }
 
 .devise-form-error {

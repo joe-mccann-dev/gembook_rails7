@@ -1,0 +1,6 @@
+<%= turbo_stream.replace("flash-message") do %>
+  <%= render "shared/turbo-flash-message" %>
+<% end %>
+
+<%= turbo_stream.replace(@post) %>
+
