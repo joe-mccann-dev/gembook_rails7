@@ -1,0 +1,5 @@
+<%= turbo_stream.prepend "posts-list", class: "posts-collection" do %>
+  <%= turbo_frame_tag dom_id(@post) do %>
+      <%= render "posts/post", post: @post %>
+  <% end %>
+<% end %>

@@ -23,11 +23,12 @@ class PostsController < ApplicationController
 
   def create
     if @post.save
-      flash[:success] = 'Post created successfully.'
-      redirect_to root_url
+      respond_to do |format|
+        format.turbo_stream {}
+        format.html {}
+      end
     else
       flash[:warning] = 'Failed to create post. Please try again.'
-      render :new
     end
   end
 
