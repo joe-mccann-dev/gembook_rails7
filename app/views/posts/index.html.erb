@@ -8,4 +8,7 @@
       <%= render partial: 'posts/post', collection: @posts %>
     <% end %>
   </ul>
+  <div class="paginate">
+    <%= paginate @posts %>
+  </div>
 </div>

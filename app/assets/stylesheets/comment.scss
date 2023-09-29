@@ -7,7 +7,9 @@
 }
 
 .comment-thread {
-  width: 100%
+  width: 100%;
+  border-left: solid 1.2px var(--gray-blue);
+  padding-left: 12px;
 }
 
 .comment {

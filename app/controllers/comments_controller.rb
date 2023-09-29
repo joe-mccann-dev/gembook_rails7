@@ -35,12 +35,18 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
+    success_message = "Comment was successfully updated"
     if @comment.update(comment_params)
-      flash[:success] = 'Comment successfully edited.'
-      redirect_to polymorphic_path(@comment.commentable)
+      respond_to do |format|
+        format.turbo_stream { flash.now[:success] = success_message }
+        format.html { 
+          redirect_to polymorphic_path(@comment.commentable)
+          flash[:success] = success_message
+        }
+      end
     else
       render :edit
-      flash[:warning] = 'Failed to update comment.'
+      flash[:warning] = "Failed to update comment"
     end
   end
 

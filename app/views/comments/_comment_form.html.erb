@@ -4,7 +4,7 @@
 </div>
 <%= form_with(model: [commentable, Comment.new], class: 'comment-box', id: "comment-box-for-commentable-#{link_text}-#{commentable.id}") do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <%= f.text_area :content, id: id, required: true %>
+  <%= f.text_area :content, id: id, required: true, minlength: 3, maxlength: 2000 %>
   <br>
   <% if id.match?(/^.*reply$/)%>
     <%= f.submit "Reply", id: "submit-#{commentable.id}" %>
