@@ -51,12 +51,16 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    success_message = "Comment was successfully removed"
     if @comment.destroy
-      flash[:info] = 'Comment successfully removed.'
+      respond_to do |format|
+        format.turbo_stream { flash.now[:info] = success_message }
+        format.html { flash[:info] = success_message}
+      end
     else
       flash[:warning] = "Failed to remove comment."
+      redirect_to polymorphic_path(@comment.commentable)
     end
-    redirect_to polymorphic_path(@comment.commentable)
   end
 
 
