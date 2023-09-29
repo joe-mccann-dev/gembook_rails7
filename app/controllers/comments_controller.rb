@@ -10,10 +10,16 @@ class CommentsController < ApplicationController
                only: [:create]
 
   def create
+    success_message = "Successfully created comment"
     if @comment.save
-      flash[:success] = "Successfully created comment"
       html_id = "#comment-#{@comment.id}"
-      redirect_to "#{request.referrer}#{html_id}" || root_url
+      respond_to do |format|
+        format.turbo_stream { flash.now[:success] = success_message}
+        format.html {
+          flash[:success] = success_message
+          redirect_to "#{request.referrer}#{html_id}" || root_url
+        }
+      end
     else
       flash[:warning] = "Failed to create comment"
       render :new

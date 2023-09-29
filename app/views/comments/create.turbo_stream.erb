@@ -1,0 +1,10 @@
+<%= turbo_stream.replace "flash-message" do %>
+  <%= render "shared/turbo-flash-message" %>
+<% end %>
+
+<%= turbo_stream.append "commentable-#{@comment.commentable.id}-comments" do %>
+  <%= turbo_frame_tag @comment do %>
+      <%= render "comments/comment", comment: @comment %>
+  <% end %>
+<% end %>
+
