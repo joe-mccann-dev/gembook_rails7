@@ -2,9 +2,20 @@
   <%= render "shared/turbo-flash-message" %>
 <% end %>
 
-<%= turbo_stream.append "commentable-#{@comment.commentable.id}-comments" do %>
-  <%= turbo_frame_tag @comment do %>
+
+<% if @commented_object.is_a?(Comment) %>
+  <%# append a reply to a comment %>
+  <%= turbo_stream.append "comment-#{@commented_object.id}-replies" do %>
+    <%= turbo_frame_tag @comment do %>
       <%= render "comments/comment", comment: @comment %>
+    <% end %>
+  <% end %>
+
+<% else %>
+  <%# append a comment to a post %>
+  <%= turbo_stream.append "post-comments" do %>
+    <%= turbo_frame_tag @comment do %>
+      <%= render "comments/comment", comment: @comment %>
+    <% end %>
   <% end %>
 <% end %>
-
