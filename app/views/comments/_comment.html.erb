@@ -37,11 +37,8 @@
           <p><%= simple_format(comment.content.gsub(/\\r\\n/, "\n")) %></p>
         </div>
         <div class="comment-likes">
-          <%= render partial: 'likes/like_button', locals: { likeable: comment, path: comment_likes_path(comment) } %>
-          <% if comment.likes.any? %>
-            <div class="comment-likes">
-              <%= render partial: 'likes/like_count', locals: { likeable: comment, path: comment_path(comment) } %>
-            </div>
+          <%= turbo_frame_tag "comment-#{comment.id}-likes" do %>
+            <%= render partial: "likes/comment_likes_collection", locals: { comment: comment}%>
           <% end %>
         </div>
         <div class="comment-form">
