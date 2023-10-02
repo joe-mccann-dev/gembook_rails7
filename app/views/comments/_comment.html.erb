@@ -46,7 +46,7 @@
                             locals: { commentable: comment,
                                       id: "post-#{comment.commentable_id}-comment-#{comment.id}-reply" } %>
         </div>
-        <% if comment.replies.includes(:comments).any? %>
+        <% if comment.comments.includes(:comments).any? %>
           <button id="toggle-comment-<%= comment.id %>-replies" class="toggle-replies toggle-comment-button">
             Hide Replies
             <ion-icon class="chevron" name="chevron-up-outline"></ion-icon>
@@ -54,7 +54,7 @@
         <% end %>
           <div id="comment-<%= comment.id %>-replies" class="replies">
             <%= turbo_frame_tag "comment-#{comment.id}-replies" do %>
-              <%= render partial: 'comments/comment', collection: comment.replies.includes([:likers, user: [:profile]])  %>
+              <%= render partial: 'comments/comment', collection: comment.comments.includes([:likers, user: [:profile]])  %>
             <% end %>
           </div>
       </div>

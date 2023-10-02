@@ -25,7 +25,6 @@ class LikesController < ApplicationController
 
   def destroy
     @like = Like.find(params[:id])
-    @like.destroy
     if @like.destroy
       respond_to do |format|
         format.turbo_stream {}

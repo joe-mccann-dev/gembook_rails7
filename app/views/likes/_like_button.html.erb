@@ -2,7 +2,8 @@
   <% if likeable.likers.include?(current_user) %>
       <%= button_to polymorphic_path([likeable, current_user.find_like(likeable)]),
                 method: :delete,
-                id: "#{object_to_s(likeable)}-#{likeable.id}-unlike" do %>
+                id: "#{object_to_s(likeable)}-#{likeable.id}-unlike",
+                data: { action: "click->like-toggle#toggleLike"} do %>
     
     <div class="thumb-filled">
       <ion-icon class="thumb-icon" name="thumbs-up"></ion-icon>
