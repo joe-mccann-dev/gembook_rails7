@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
     if @comment.save
       html_id = "#comment-#{@comment.id}"
       respond_to do |format|
-        format.turbo_stream { flash.now[:success] = success_message}
+        format.turbo_stream {}
         format.html {
           flash[:success] = "Successfully created comment"
           redirect_to "#{request.referrer}#{html_id}" || root_url
