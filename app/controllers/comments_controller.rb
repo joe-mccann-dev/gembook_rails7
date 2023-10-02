@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
     success_message = "Comment was successfully updated"
     if @comment.update(comment_params)
       respond_to do |format|
-        format.turbo_stream { flash.now[:success] = success_message }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@comment) }
         format.html { 
           redirect_to polymorphic_path(@comment.commentable)
           flash[:success] = success_message
@@ -54,7 +54,7 @@ class CommentsController < ApplicationController
     success_message = "Comment was successfully removed"
     if @comment.destroy
       respond_to do |format|
-        format.turbo_stream { flash.now[:info] = success_message }
+        format.turbo_stream { render turbo_stream: turbo_stream.remove(@comment) }
         format.html { flash[:info] = success_message}
       end
     else
