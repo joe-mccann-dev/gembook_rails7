@@ -41,7 +41,7 @@ class PostsController < ApplicationController
     success_message = "Post was successfully updated"
     if @post.update(post_params)
       respond_to do |format|
-        format.turbo_stream { flash.now[:success] = success_message }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@post) }
         format.html { 
           redirect_to posts_path
           flash[:success] = success_message
@@ -58,7 +58,7 @@ class PostsController < ApplicationController
 
     if @post.destroy
       respond_to do |format|
-        format.turbo_stream { flash.now[:info] = success_message }
+        format.turbo_stream { render turbo_stream: turbo_stream.remove(@post) }
         format.html {
           redirect_to posts_path
           flash[:success] = success_message

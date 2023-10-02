@@ -13,7 +13,7 @@
                   post_path(post), 
                   method: :delete, 
                   id: "delete-post-button", 
-                  data: { controller: "delete-post", "delete-post-target": "post" },
+                  data: { turbo_confirm: "Are you sure you want to delete this post?" },
                   class: "button" %>
           </div>
         <% end %>
