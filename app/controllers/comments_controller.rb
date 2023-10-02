@@ -35,13 +35,12 @@ class CommentsController < ApplicationController
   def edit; end
 
   def update
-    success_message = "Comment was successfully updated"
     if @comment.update(comment_params)
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.replace(@comment) }
         format.html { 
           redirect_to polymorphic_path(@comment.commentable)
-          flash[:success] = success_message
+          flash[:success] = "Comment was successfully updated"
         }
       end
     else
@@ -51,11 +50,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    success_message = "Comment was successfully removed"
     if @comment.destroy
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.remove(@comment) }
-        format.html { flash[:info] = success_message}
+        format.html { flash[:info] = "Comment was successfully removed" }
       end
     else
       flash[:warning] = "Failed to remove comment."

@@ -38,13 +38,12 @@ class PostsController < ApplicationController
   end
 
   def update
-    success_message = "Post was successfully updated"
     if @post.update(post_params)
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.replace(@post) }
         format.html { 
           redirect_to posts_path
-          flash[:success] = success_message
+          flash[:success] = "Post was successfully updated"
         }
       end
     else
@@ -54,14 +53,12 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    success_message = 'Post successfully removed.'
-
     if @post.destroy
       respond_to do |format|
         format.turbo_stream { render turbo_stream: turbo_stream.remove(@post) }
         format.html {
           redirect_to posts_path
-          flash[:success] = success_message
+          flash[:success] = 'Post successfully removed.'
         }
       end
     else
