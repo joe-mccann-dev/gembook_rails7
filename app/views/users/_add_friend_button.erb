@@ -5,7 +5,7 @@
                     params: { receiver_id: user.id },
                     class: "add-friend button",
                     id: "friend-#{user.id}",
-                    data: { confirm: "Send #{user.first_name} a friend request?"} do %>
+                    data: { turbo_confirm: "Send #{user.first_name} a friend request?"} do %>
       <div class="link-group add-friend-icon-container">
         <ion-icon class="add-friend-icon" name="person-add-outline"></ion-icon>
         <span class="add-friend-text"> Add Friend</span>
