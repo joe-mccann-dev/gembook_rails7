@@ -22,13 +22,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    success_message = "Post was successfully created"
     if @post.save
       respond_to do |format|
-        format.turbo_stream { flash.now[:success] = success_message }
+        format.turbo_stream {}
         format.html {
           redirect_to posts_path
-          flash[:success] = success_message
+          flash[:success] = "Post was successfully created"
         }
       end
     else
