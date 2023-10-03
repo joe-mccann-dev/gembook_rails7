@@ -14,9 +14,16 @@ class FriendshipsController < ApplicationController
   def create
     @friendship = current_user.sent_pending_requests.build(receiver: @receiver)
     if @friendship.save
-      flash[:success] = "Friend request sent to #{@receiver.first_name}"
+      respond_to do |format|
+        format.turbo_stream {}
+        format.html {
+          flash[:success] = "Friend request sent to #{@receiver.first_name}"
+          redirect_to request.referrer || root_url
+        }
+      end
     else
       flash[:warning] = 'Failed to send friend request. Please try again'
+      redirect_to request.referrer || root_url
     end
     redirect_to request.referrer || root_url
   end
@@ -36,12 +43,19 @@ class FriendshipsController < ApplicationController
 
   def destroy
     @friendship = Friendship.find(params[:id])
+    friend = @friendship.receiver == current_user ? @friendship.sender : @friendship.receiver
     if @friendship.destroy
-      flash[:info] = "You are no longer friends with #{params[:friend_name]}."
+      respond_to do |format|
+        format.turbo_stream { render turbo_stream: turbo_stream.remove("friend-result-#{friend.id}") }
+        format.html {
+          flash[:info] = "You are no longer friends with #{params[:friend_name]}."
+          redirect_to request.referrer || root_url
+        }
+      end
     else
       flash[:warning] = "Failed to unfriend #{params[:friend_name]}."
+      redirect_to request.referrer || root_url
     end
-    redirect_to request.referrer || root_url
   end
 
   private
