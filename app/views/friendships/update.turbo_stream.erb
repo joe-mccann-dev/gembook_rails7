@@ -1,1 +1,5 @@
-<%= turbo_stream.replace("accept-friend-request-#{@friendship.id}", content_tag(:em, "Friendship accepted")) %>
+<%= message = @friendship.accepted? ? "Friendship accepted" : "Friendship declined" %>
+
+<div>
+  <%= turbo_stream.replace("accept-friend-request-#{@friendship.id}", content_tag(:p, message)) %>
+</div>

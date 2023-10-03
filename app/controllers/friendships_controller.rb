@@ -12,22 +12,20 @@ class FriendshipsController < ApplicationController
   after_action -> { mark_notification_read('Friendship', @sender_id) }, only: [:update]
 
   def create
-    @friendship = current_user.sent_pending_requests.build(receiver: @receiver)
-    if @friendship.save
-      respond_to do |format|
+    respond_to do |format|
+      if handle_declined_friendship
         format.turbo_stream {}
         format.html {
-          flash[:success] = "Friend request sent to #{@receiver.first_name}"
+          flash[:success] = "Friend request resent to #{@receiver.first_name}"
           redirect_to request.referrer || root_url
         }
+      else
+        flash[:warning] = 'Failed to send friend request. Please try again'
+        redirect_to request.referrer || root_url
       end
-    else
-      flash[:warning] = 'Failed to send friend request. Please try again'
-      redirect_to request.referrer || root_url
     end
-    redirect_to request.referrer || root_url
   end
-
+  
   def update
     if @friendship.update(friendship_params)
       respond_to do |format|
@@ -65,6 +63,20 @@ class FriendshipsController < ApplicationController
   end
 
   private
+
+  def handle_declined_friendship
+    declined_friendship = Friendship.find_by(sender_id: current_user.id, receiver_id: @receiver.id, status: "declined")
+    if declined_friendship && Friendship.friendship_declined.include?(declined_friendship)
+      declined_friendship.update(status: "pending")
+    else
+      create_friendship
+    end
+  end
+  
+  def create_friendship
+    @friendship = current_user.sent_pending_requests.build(receiver: @receiver)
+    @friendship.save
+  end
 
   def friendship_params
     params.require(:friendship).permit(:sender_id, :receiver_id, :status)

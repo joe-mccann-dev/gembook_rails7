@@ -1,10 +1,12 @@
     
   <% if friendable?(@user) %>
-    <%= link_to "Send #{@user.first_name} a friend request", 
-                    friendships_path(sender_id: current_user.id, receiver_id: @user.id),
-                    method: :post,
-                    data: { confirm: "Send #{@user.first_name} a friend request?"} %>
-    to see their posts.
+    <%= turbo_frame_tag "user-result-#{@user.id}" do %>
+      <%= button_to "Send #{@user.first_name} a friend request to see their posts.", 
+                      friendships_path(sender_id: current_user.id, receiver_id: @user.id),
+                      data: { turbo_confirm: "Send #{@user.first_name} a friend request?"},
+                      class: "button" %>
+      
+    <% end %>
   <% end %>
 
   <% if current_user.pending_requested_friends.include?(@user) %>

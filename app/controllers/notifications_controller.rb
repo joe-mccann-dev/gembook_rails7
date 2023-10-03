@@ -8,12 +8,19 @@ class NotificationsController < ApplicationController
 
   def update
     @notification = Notification.find(params[:id])
+
     if @notification.update(notification_params)
-      flash[:info] = 'Notification dismissed'
+      respond_to do |format|
+        format.turbo_stream {}
+        format.html {
+          flash[:info] = 'Notification dismissed'
+          redirect_to notifications_path
+        }
+      end
     else
       flash[:warning] = 'Failed to dismiss notification'
+      redirect_to notifications_path
     end
-    redirect_to notifications_path
   end
 
   def dismiss_all
