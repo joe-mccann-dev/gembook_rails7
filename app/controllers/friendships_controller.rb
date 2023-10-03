@@ -30,15 +30,21 @@ class FriendshipsController < ApplicationController
 
   def update
     if @friendship.update(friendship_params)
-      flash[:success] = if @friendship.accepted?
-                          'Friendship accepted!'
-                        else
-                          'Friendship declined.'
-                        end
+      respond_to do |format|
+        format.turbo_stream {}
+        format.html {
+          flash[:success] = if @friendship.accepted?
+            'Friendship accepted!'
+          else
+            'Friendship declined.'
+          end
+          redirect_to request.referrer || root_url
+        }
+      end
     else
       flash[:warning] = 'Failed to accept or decline friendship'
+      redirect_to request.referrer || root_url
     end
-    redirect_to request.referrer || root_url
   end
 
   def destroy
