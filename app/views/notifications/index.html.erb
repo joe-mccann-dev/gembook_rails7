@@ -18,7 +18,7 @@
     <% end %>
     <ul class="notifications-collection">
       <% @notifications.unread.each do |notification| %>
-        <%= show_notification(notification) %>
+        <%= show_notification(notification, @friendships) %>
       <% end %>
       <ul>
       </div>

@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "dismiss-notification-#{notification.id}" do %>
+
   <li class="individual-notification">
     <div class="description-and-time">
       <p class="notification-description">
@@ -11,4 +11,3 @@
       <%= render partial: 'dismiss_notification_button', locals: { notification: notification } %>
     </div>
   </li>
-<% end %>
