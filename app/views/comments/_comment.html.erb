@@ -1,5 +1,5 @@
 <%= turbo_frame_tag(comment) do %>
-<ul>
+<ul data-controller="show-comments">
   <li class="comment-thread" id="likeable-<%= object_to_s(comment) %>-<%= comment.id %>">
     <div class="comment" id="comment-<%=comment.id %>">
       <div class="comment-header">
@@ -47,12 +47,12 @@
                                       id: "post-#{comment.commentable_id}-comment-#{comment.id}-reply" } %>
         </div>
         <% if comment.comments.includes(:comments).any? %>
-          <button id="toggle-comment-<%= comment.id %>-replies" class="toggle-replies toggle-comment-button">
+          <button id="toggle-comment-<%= comment.id %>-replies" class="toggle-replies toggle-comment-button" data-show-comments-target="commentCommentsButton" data-action="click->show-comments#showCommentComments">
             Hide Replies
             <ion-icon class="chevron" name="chevron-up-outline"></ion-icon>
           </button>
         <% end %>
-          <div id="comment-<%= comment.id %>-replies" class="replies">
+          <div id="comment-<%= comment.id %>-replies" class="replies" data-show-comments-target="commentComments">
             <%= turbo_frame_tag "comment-#{comment.id}-replies" do %>
               <%= render partial: 'comments/comment', collection: comment.comments.includes([:likers, user: [:profile]])  %>
             <% end %>

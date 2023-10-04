@@ -1,5 +1,5 @@
 <%= turbo_frame_tag(post) do %>
-  <li class="post-container" id="likeable-<%= object_to_s(post) %>-<%= post.id %>">
+  <li data-controller="show-comments" class="post-container" id="likeable-<%= object_to_s(post) %>-<%= post.id %>">
     <div class="post-controls">
       <div class="post-user">
         <%= render partial: 'users/user_icon', locals: { user: post.user } %>
@@ -50,13 +50,13 @@
       <%= render partial: 'comments/comment_form', locals: { commentable: post, id: "post-#{post.id}-comment"}  %>
     </div>
     <% if post.comments.any? %>
-      <button id="toggle-post-<%= post.id %>-comments" class="toggle-comments toggle-comment-button" data-controller="show-comments">
+      <button id="toggle-post-<%= post.id %>-comments" class="toggle-comments toggle-comment-button" data-show-comments-target="postCommentsButton" data-action="click->show-comments#showPostComments">
         Hide Comments
         <ion-icon class="chevron" name="chevron-up-outline"></ion-icon>
       </button>
     <% end %>
     
-    <div id="post-<%= post.id %>-comments" class="post-comments" data-action="click->show-comments#showComments">
+    <div id="post-<%= post.id %>-comments" class="post-comments" data-show-comments-target="postComments">
       <%= turbo_frame_tag "post-comments" do %>
         <%= render partial: "/comments/comment", collection: post.comments.includes([:likers, user: [:profile]]) %>
       <% end %>
