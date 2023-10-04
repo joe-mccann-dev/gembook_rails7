@@ -46,10 +46,8 @@
         <%= render partial: 'likes/like_count', locals: { likeable: post, path: post_path(post) } %>
       <% end %>
     </div>
-    <div class="comment-form">
-      <%= render partial: 'comments/comment_form',
-                        locals: { commentable: post,
-                                  id: "post-#{post.id}-comment"} %>
+    <div class="comment-form" data-controller="show-comments">
+      <%= render partial: 'comments/comment_form', locals: { commentable: post, id: "post-#{post.id}-comment"}  %>
     </div>
     <% if post.comments.any? %>
       <button id="toggle-post-<%= post.id %>-comments" class="toggle-comments toggle-comment-button">

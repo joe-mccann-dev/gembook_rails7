@@ -41,7 +41,7 @@
             <%= render partial: "likes/comment_likes_collection", locals: { comment: comment}%>
           <% end %>
         </div>
-        <div class="comment-form">
+        <div class="comment-form" data-controller="show-comments">
           <%= render partial: 'comments/comment_form',
                             locals: { commentable: comment,
                                       id: "post-#{comment.commentable_id}-comment-#{comment.id}-reply" } %>

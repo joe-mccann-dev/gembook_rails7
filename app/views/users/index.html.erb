@@ -35,7 +35,7 @@
             "javascript:void(0)",
             method: :get,
             class: "button",
-            data: { action: "click->show-users#showFriends", "show-users-target": "friendsLink" } %>
+            data: { action: "click->show-users#showFriends"} %>
         <ul class="users-friends hidden" id="friends", data-show-users-target="friends">
           <%= render partial: "friend", collection: @friends %>
         </ul>
