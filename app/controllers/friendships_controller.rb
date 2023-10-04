@@ -16,7 +16,7 @@ class FriendshipsController < ApplicationController
       if handle_declined_friendship
         format.turbo_stream {}
         format.html {
-          flash[:success] = "Friend request resent to #{@receiver.first_name}"
+          flash[:success] = "Friend request sent to #{@receiver.first_name}"
           redirect_to request.referrer || root_url
         }
       else
@@ -28,14 +28,11 @@ class FriendshipsController < ApplicationController
   
   def update
     if @friendship.update(friendship_params)
+      @message = @friendship.accepted? ? "Friendship accepted" : "Friendship declined"
       respond_to do |format|
         format.turbo_stream {}
         format.html {
-          flash[:success] = if @friendship.accepted?
-            'Friendship accepted!'
-          else
-            'Friendship declined.'
-          end
+          flash[:success] = @message
           redirect_to request.referrer || root_url
         }
       end
