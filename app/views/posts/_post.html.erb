@@ -3,7 +3,7 @@
     <div class="post-controls">
       <div class="post-user">
         <%= render partial: 'users/user_icon', locals: { user: post.user } %>
-        <p class="post-author"><%= link_to post.user.full_name, user_path(post.user) %></p>
+        <p class="post-author"><%= link_to post.user.full_name, user_path(post.user), data: { turbo: false } %></p>
       </div>
       <div class="time-posted">
         <% if user_is_current_user?(post.user) %>

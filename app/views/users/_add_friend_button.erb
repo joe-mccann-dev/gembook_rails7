@@ -13,6 +13,6 @@
         </div>
       <% end %>
     <% end %>
-    <%= content_tag(:em, "friendship pending") if current_user.pending_friends.include?(user) %>
+    <%= content_tag(:em, "Friend request sent") if current_user.pending_friends.include?(user) %>
   </div>
 <% end %>

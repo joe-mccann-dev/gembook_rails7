@@ -24,7 +24,7 @@ class NotificationsController < ApplicationController
   end
 
   def dismiss_all
-    current_user.received_notifications.map { |n| n.update(read: true) }
+    current_user.received_notifications.includes(:sender, :receiver).map { |n| n.update(read: true) }
     flash[:info] = 'Dismissed all notifications'
     redirect_to notifications_path
   end
