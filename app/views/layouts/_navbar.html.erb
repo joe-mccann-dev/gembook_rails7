@@ -37,8 +37,8 @@
           <%= link_to notifications_path, class: 'notifications-link' do %>
             <div class="link-group">
               <div class="nav-icon notifications-bell">
-                <div class="notifications-count">
-                  <span><%= current_user.received_notifications.unread.length %></span>
+                <div data-controller="notification-count" id="notification-container" class="notifications-count">
+                  <span id="notificationCount"><%= current_user.received_notifications.unread.length %></span>
                 </div>
                 <div class="nav-icon-container">
                   <ion-icon name="notifications-outline"></ion-icon>

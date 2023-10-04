@@ -2,5 +2,5 @@
 notification,
 method: :put,
 params: { notification: { read: true } },
-class: "dismiss-notification button"
- %>
+data: { action: "click->notification-count#decrementNotificationCount" },
+class: "dismiss-notification button" %>
