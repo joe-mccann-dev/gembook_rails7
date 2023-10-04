@@ -13,6 +13,5 @@ export default class extends Controller {
     } else {
       notificationCountElement.textContent = numNotifications - 1;
     }
-    
   }
 }
