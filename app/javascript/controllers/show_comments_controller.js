@@ -2,9 +2,9 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
 
-  static targets = ["comments"]
+  static targets = ["commentForm"]
 
   showCommentForm() {
-    this.commentsTarget.classList.toggle("hidden");
+    this.commentFormTarget.classList.toggle("hidden");
   }
 } 

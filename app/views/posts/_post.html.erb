@@ -50,13 +50,13 @@
       <%= render partial: 'comments/comment_form', locals: { commentable: post, id: "post-#{post.id}-comment"}  %>
     </div>
     <% if post.comments.any? %>
-      <button id="toggle-post-<%= post.id %>-comments" class="toggle-comments toggle-comment-button">
+      <button id="toggle-post-<%= post.id %>-comments" class="toggle-comments toggle-comment-button" data-controller="show-comments">
         Hide Comments
         <ion-icon class="chevron" name="chevron-up-outline"></ion-icon>
       </button>
     <% end %>
     
-    <div id="post-<%= post.id %>-comments" class="post-comments">
+    <div id="post-<%= post.id %>-comments" class="post-comments" data-action="click->show-comments#showComments">
       <%= turbo_frame_tag "post-comments" do %>
         <%= render partial: "/comments/comment", collection: post.comments.includes([:likers, user: [:profile]]) %>
       <% end %>
