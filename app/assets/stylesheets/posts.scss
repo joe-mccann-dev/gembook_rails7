@@ -99,7 +99,11 @@
   flex-wrap: wrap;
   width: 100%;
   margin-left: 8px;
+  max-width: 80vw;
+  overflow: auto; 
+  word-wrap: break-word;
 }
+
 
 .post-image {
   margin-top: 12px;

@@ -29,6 +29,14 @@
 
 .comment-content {
   overflow-wrap: break-word;
+  margin-left: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 70vw;
+  overflow: auto; 
+  word-wrap: break-word;
 }
 
 .comment-header {
@@ -50,7 +58,7 @@
 }
 
 .comment-content {
-  margin-left: 8px;
+  
 }
 
 .comment-box {
