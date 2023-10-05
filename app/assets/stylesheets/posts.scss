@@ -7,7 +7,7 @@
 .form.new-post {
   display: flex;
   flex-direction: column;
-  border: solid 1.4px var(--yellow-orange);
+  border: solid 1.4px var(--yellow);
   border-radius: 12px;
   padding: 2rem;
   width: 100%;
@@ -82,7 +82,7 @@
   padding: 1rem;
   width: 100%;
   box-shadow: 0 0 8px 4px var(--gray-blue-transparent);
-  border: solid 1.4px var(--yellow-orange);
+  border: solid 1.4px var(--yellow);
   margin-bottom: 36px;
 }
 

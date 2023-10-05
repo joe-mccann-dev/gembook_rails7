@@ -19,7 +19,7 @@
   --light-blue: #E2F5FE;
   --dark-blue: #1B2B34;
   --gray-blue: #465B67;
-  --yellow-orange: #fde68a;
+  --yellow: #fde68a;
   --red: #B73929;
   --cyan: #65D8F8;
   --green: #0EA76D;
@@ -193,7 +193,7 @@ nav.pagination span {
 
 a {
  text-decoration: none;
- color: var(--yellow-orange);
+ color: var(--yellow);
  font-weight: 700;
  padding-bottom: 0.5rem;
 }
@@ -260,7 +260,7 @@ input:hover, textarea:hover {
 }
 
 .logout-button {
-  background: linear-gradient(to right, var(--yellow-orange), var(--light-blue));
+  background: linear-gradient(to right, var(--yellow), var(--light-blue));
   color: var(--dark-blue);
   padding: 12px;
   font-size: 0.8rem;
@@ -281,7 +281,7 @@ input:hover, textarea:hover {
 }
 
 .submit.button:hover {
- box-shadow: 0 0 0 2px var(--yellow-orange);
+ box-shadow: 0 0 0 2px var(--yellow);
  transition: color .3s ease-in-out;
 }
 
@@ -309,7 +309,7 @@ input:hover, textarea:hover {
 }
 
 .devise-links-container a:hover {
- box-shadow: 0 0 0 2px var(--yellow-orange);
+ box-shadow: 0 0 0 2px var(--yellow);
  transition: box-shadow .3s ease-in-out;
 }
 
@@ -427,7 +427,7 @@ p {
 }
 
 .button-update {
- background-color: var(--yellow-orange);
+ background-color: var(--yellow);
 }
 
 .paginate {
