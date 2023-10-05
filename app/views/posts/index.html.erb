@@ -2,7 +2,7 @@
   <div class="form-container">
     <%= turbo_frame_tag "post_form", src: new_post_path %>
   </div>
-  <h1 class="users-heading">Timeline posts</h1>
+  <h1 class="users-heading">Recent Posts</h1>
   <ul class="posts-collection">
     <%= turbo_frame_tag "posts-list" do %>
       <%= render partial: 'posts/post', collection: @posts %>

@@ -19,7 +19,7 @@
   --light-blue: #E2F5FE;
   --dark-blue: #1B2B34;
   --gray-blue: #465B67;
-  --yellow-orange: #ecb349;
+  --yellow-orange: #fde68a;
   --red: #B73929;
   --cyan: #65D8F8;
   --green: #0EA76D;
@@ -87,7 +87,7 @@ nav {
  align-items: center;
  justify-content: space-evenly;
  background-color: var(--cyan);
- background: linear-gradient(to right, var(--yellow-orange), var(--cyan));
+ background: linear-gradient(to right, var(--light-blue), var(--cyan));
 }
 
 
@@ -128,7 +128,7 @@ nav.pagination span {
 .link-group {
  display: flex;
  align-items: center;
- gap: 8px;
+ /* gap: 8px; */
 }
 
 .logo {
@@ -257,6 +257,16 @@ input:hover, textarea:hover {
 
 .brand-summary {
  margin-bottom: 0;
+}
+
+.logout-button {
+  background: linear-gradient(to right, var(--yellow-orange), var(--light-blue));
+  color: var(--dark-blue);
+  padding: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 12px;
+
 }
 
 .submit {
