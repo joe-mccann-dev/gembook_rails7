@@ -7,7 +7,9 @@
     </div>
     <h3 class="profile-heading">Your Posts</h3>
     <ul class="posts-collection">
-      <%= render partial: 'posts/post', collection: @posts %>
+      <%= turbo_frame_tag "posts-list" do %>
+        <%= render partial: 'posts/post', collection: @posts %>
+      <% end %>
     </ul>
   <% end %>
   <% if current_user.friends.include?(@user) %>
