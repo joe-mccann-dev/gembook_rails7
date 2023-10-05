@@ -346,9 +346,10 @@ input:hover, textarea:hover {
   z-index: 1000;
 }
 
-.notification.message.fade {
+.fade {
   opacity: 0;
-  transition: opacity 0.5s ease-out;
+  font-size: 1.4rem;
+  transition: font-size 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
 .devise-form-error {
