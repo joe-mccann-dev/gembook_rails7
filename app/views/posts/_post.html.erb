@@ -57,7 +57,7 @@
     <% end %>
     
     <div id="post-<%= post.id %>-comments" class="post-comments" data-show-comments-target="postComments">
-      <%= turbo_frame_tag "post-comments" do %>
+      <%= turbo_frame_tag "post-#{post.id}-comments" do %>
         <%= render partial: "/comments/comment", collection: post.comments.includes([:likers, user: [:profile]]) %>
       <% end %>
     </div>

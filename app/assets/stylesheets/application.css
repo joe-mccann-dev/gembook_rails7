@@ -266,7 +266,7 @@ input:hover, textarea:hover {
   font-size: 0.8rem;
   font-weight: 700;
   border-radius: 12px;
-
+  cursor: pointer;
 }
 
 .submit {

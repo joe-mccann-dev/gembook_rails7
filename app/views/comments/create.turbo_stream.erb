@@ -8,7 +8,7 @@
 
 <% else %>
   <%# append a comment to a post %>
-  <%= turbo_stream.append "post-comments" do %>
+  <%= turbo_stream.append "post-#{@comment.commentable.id}-comments" do %>
     <%= turbo_frame_tag @comment do %>
       <%= render "comments/comment", comment: @comment %>
     <% end %>
