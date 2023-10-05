@@ -1,14 +1,13 @@
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_friendships, only: [:index, :update]
 
   def index
     @notifications = current_user.received_notifications.includes([:sender]).order(created_at: :desc)
-    @friendships = current_user.requests_via_notification_sender_id
   end
 
   def update
     @notification = Notification.find(params[:id])
-
     if @notification.update(notification_params)
       respond_to do |format|
         format.turbo_stream {}
@@ -33,5 +32,9 @@ class NotificationsController < ApplicationController
 
   def notification_params
     params.require(:notification).permit(:read)
+  end
+
+  def set_friendships
+    @friendships = current_user.requests_via_notification_sender_id
   end
 end

@@ -16,10 +16,10 @@
         </div>
       </div>
     <% end %>
-    <ul class="notifications-collection">
+    <ul data-controller="notification-count" class="notifications-collection">
       <% @notifications.unread.each do |notification| %>
-        <%= show_notification(notification, @friendships) %>
+        <%= show_notification(notification, @friendships[notification.sender.id] ) %>
       <% end %>
-      <ul>
+    <ul>
       </div>
     </div>

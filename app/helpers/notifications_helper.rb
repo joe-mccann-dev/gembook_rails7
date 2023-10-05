@@ -1,13 +1,11 @@
 module NotificationsHelper
 
-  def show_notification(notification, friendships)
+  def show_notification(notification, friendship)
     case notification.object_type
     when 'Friendship'
-      render partial: 'friendship_notification', locals: { notification: notification }
+      render partial: 'friendship_notification', locals: { notification: notification, friendship: friendship  }
     else
-      turbo_frame_tag "dismiss-notification-#{notification.id}" do
-        render partial: 'standard_notification', locals: { notification: notification }
-      end
+      render partial: 'standard_notification', locals: { notification: notification }
     end
   end
 end
