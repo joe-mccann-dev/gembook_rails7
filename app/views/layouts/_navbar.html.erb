@@ -1,4 +1,4 @@
-<nav>
+<nav data-controller="burger-menu">
   <%= link_to root_url do %>
     <div class="logo">
       <div class="gembook">
@@ -8,10 +8,10 @@
     </div>
   <% end %>
   <% if user_signed_in? %>
-    <button id="hamburger" class="hamburger">
+    <button data-action="click->burger-menu#toggleNavLinks" id="hamburger" class="hamburger">
       <ion-icon name="menu-outline"></ion-icon>
     </button>
-    <ul class="nav-links link-group" id="nav-links">
+    <ul data-burger-menu-target="navLinks" class="nav-links link-group" id="nav-links">
       <li class="nav-item">
         <%= link_to posts_path do %>
             <div class="nav-icon-container">
