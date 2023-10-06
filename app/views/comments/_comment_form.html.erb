@@ -11,8 +11,8 @@
   <%= f.text_area :content, id: id, required: true, minlength: 3, maxlength: 2000 %>
   <br>
   <% if id.match?(/^.*reply$/)%>
-    <%= f.submit "Reply", id: "submit-#{commentable.id}" %>
+    <%= f.submit "Reply", id: "submit-#{commentable.id}", data: { action: "click->show-comments#showCommentForm"} %>
   <% else %>
-    <%= f.submit "Comment", id: "submit-#{commentable.id}" %>
+    <%= f.submit "Comment", id: "submit-#{commentable.id}", data: { action: "click->show-comments#showCommentForm"} %>
   <% end %>
 <% end %>

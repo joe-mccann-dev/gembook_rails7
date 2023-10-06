@@ -1,0 +1,6 @@
+  <button class="button" data-show-post-target="postButton" data-action="click->show-post#showForm">
+    Create a New Post on Gembook
+  </button>
+  <div data-show-post-target="postForm" class="form-container hidden">
+    <%= turbo_frame_tag "post_form", src: new_post_path %>
+  </div>
