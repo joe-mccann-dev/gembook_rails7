@@ -6,6 +6,7 @@ export default class extends Controller {
 
   showCommentForm() {
     this.commentFormTarget.classList.toggle("hidden");
+    this.commentFormTarget.reset();
   }
 
   showPostComments() {

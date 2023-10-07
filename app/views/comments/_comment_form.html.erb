@@ -5,14 +5,14 @@
 <%= form_with(model: [commentable, Comment.new], 
               class: 'comment-box hidden', 
               id: "comment-box-for-commentable-#{link_text}-#{commentable.id}",
-              data: { "show-comments-target": "commentForm"}) do |f| %>
+              data: { "show-comments-target": "commentForm", action: "turbo:submit-end->show-comments#showCommentForm" }) do |f| %>
               
   <%= render 'shared/error_messages', object: f.object %>
   <%= f.text_area :content, id: id, required: true, minlength: 3, maxlength: 2000 %>
   <br>
   <% if id.match?(/^.*reply$/)%>
-    <%= f.submit "Reply", id: "submit-#{commentable.id}", data: { action: "click->show-comments#showCommentForm"} %>
+    <%= f.submit "Reply", id: "submit-#{commentable.id}" %>
   <% else %>
-    <%= f.submit "Comment", id: "submit-#{commentable.id}", data: { action: "click->show-comments#showCommentForm"} %>
+    <%= f.submit "Comment", id: "submit-#{commentable.id}" %>
   <% end %>
 <% end %>
