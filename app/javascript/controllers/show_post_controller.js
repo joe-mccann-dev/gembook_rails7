@@ -6,7 +6,6 @@ export default class extends Controller {
   showForm() {
     const newPostMessage = "Show Post Form";
     const hidePostMessage = "Hide Post Form";
-    console.log("hello this is the post controller!");
     this.postFormTarget.classList.toggle("hidden");
     this.postButtonTarget.textContent =  this.postButtonTarget.textContent === hidePostMessage ?  newPostMessage : hidePostMessage;
   }
