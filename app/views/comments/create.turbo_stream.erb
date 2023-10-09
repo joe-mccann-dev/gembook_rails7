@@ -11,7 +11,9 @@
 <% else %>
   <%# append a comment to a post %>
   <%= turbo_stream.append "post-#{@comment.commentable.id}-comments" do %>
-    <%= turbo_frame_tag @comment do %>
+    <%= turbo_stream_from "post-#{@comment.commentable.id}-comments"  %>
+
+    <%= turbo_frame_tag @comment, 'data-autoscroll-behavior': 'smooth', 'data-controller': 'scroll-to-comment', 'data-scroll-to-comment-target': "comment" do %>
       <%= render "comments/comment", comment: @comment %>
     <% end %>
   <% end %>
