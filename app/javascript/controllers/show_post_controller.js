@@ -4,8 +4,8 @@ export default class extends Controller {
   static targets = ["postForm", "postButton"];
 
   showForm() {
-    const newPostMessage = "Create a New Post on Gembook";
-    const hidePostMessage = "Hide New Post Form";
+    const newPostMessage = "Show Post Form";
+    const hidePostMessage = "Hide Post Form";
     console.log("hello this is the post controller!");
     this.postFormTarget.classList.toggle("hidden");
     this.postButtonTarget.textContent =  this.postButtonTarget.textContent === hidePostMessage ?  newPostMessage : hidePostMessage;
