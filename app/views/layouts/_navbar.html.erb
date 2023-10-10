@@ -13,10 +13,12 @@
     </button>
     <ul data-burger-menu-target="navLinks" class="nav-links link-group" id="nav-links">
       <li class="nav-item">
+        
         <%= link_to posts_path do %>
             <div class="nav-icon-container">
               <ion-icon class="nav-icon" name="create-outline"></ion-icon>
             </div>
+            <span>Posts</span>
         <% end %>
       </li>
       <li class="nav-item">
@@ -24,6 +26,7 @@
             <div class="nav-icon-container">
               <ion-icon class="nav-icon" name="people-circle-outline"></ion-icon>
             </div>
+            <span>Friends</span>
         <% end %>
       </li>
       <li class="nav-item">
@@ -37,6 +40,7 @@
                   <ion-icon name="notifications-outline"></ion-icon>
                 </div>
               </div>
+              <span>Notifications</span>
           <% end %>
         <% else %>
           <%= link_to notifications_path, class: 'notifications-link'  do %>
@@ -45,6 +49,7 @@
                   <ion-icon name="notifications-outline"></ion-icon>
                 </div>
               </div>
+              <span>Notifications</span>
           <% end %>
         <% end %>
       </li>
@@ -55,6 +60,7 @@
                 <ion-icon name="settings-outline"></ion-icon>
               </div>
             </div>
+            <span>Settings</span>
         <% end %>
       </li>
       <li class="nav-item">

@@ -11,6 +11,9 @@
         <%= render partial: 'posts/post', collection: @posts %>
       <% end %>
     </ul>
+    <div class="paginate">
+      <%= paginate @posts if @posts.any? %>
+    </div>
   <% end %>
 
   <% if current_user.friends.include?(@user) %>
