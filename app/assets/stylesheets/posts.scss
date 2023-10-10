@@ -87,7 +87,7 @@
   flex-direction: column;
   max-width: 600px;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 0.8em;
   width: 100%;
   box-shadow: 0 0 8px 4px var(--gray-blue-transparent);
   border: solid 1.4px var(--yellow);
@@ -106,7 +106,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
-  margin-left: 8px;
   max-width: 80vw;
   overflow: auto; 
   word-wrap: break-word;
@@ -120,8 +119,10 @@
 
 .post-image img {
   max-width: 95%;
-  border-radius: 12px;
+  border-radius: 2rem;
   padding: 0.4rem 0;
+  display: flex;
+  margin: 0 auto;
 }
 
 .post-controls {
