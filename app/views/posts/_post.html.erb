@@ -26,9 +26,9 @@
     </div>
     <div class="post-content">
       <% if post.content.present? %>
-        <p class="post-content">
+        <div class="post-text">
           <%= simple_format(post.content.gsub(/\\r\\n/, "\n")) %>
-        </p>
+        </div>
       <% end %>
       <% if post.image.present? %>
         <div class="post-image">

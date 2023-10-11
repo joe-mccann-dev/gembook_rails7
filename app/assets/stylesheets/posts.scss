@@ -109,6 +109,18 @@
   max-width: 80vw;
   overflow: auto; 
   word-wrap: break-word;
+  padding: 0.8rem  
+}
+
+.post-text {
+  background: linear-gradient(to right, var(--gray-blue), var(--dark-blue));;
+  padding: 1.2rem;
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.post-text p {
+  margin-bottom: 0;
 }
 
 
@@ -119,10 +131,11 @@
 
 .post-image img {
   max-width: 95%;
-  border-radius: 2rem;
-  padding: 0.4rem 0;
+  padding: 12px;
   display: flex;
   margin: 0 auto;
+  box-shadow: 0 0 2px 1px var(--pink);
+  border-radius: 12px;
 }
 
 .post-controls {

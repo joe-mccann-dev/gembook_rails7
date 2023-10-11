@@ -29,7 +29,6 @@
 
 .comment-content {
   overflow-wrap: break-word;
-  margin-left: 8px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -37,6 +36,17 @@
   max-width: 70vw;
   overflow: auto; 
   word-wrap: break-word;
+  padding: 0.8rem;
+}
+
+.comment-text {
+  background: linear-gradient(to right, var(--gray-blue), var(--dark-blue));
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.comment-text p {
+  margin-bottom: 0;
 }
 
 .comment-header {
