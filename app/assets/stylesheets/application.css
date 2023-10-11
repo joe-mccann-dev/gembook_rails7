@@ -24,7 +24,8 @@
   --cyan: #65D8F8;
   --green: #0EA76D;
 
-  --pink: #fb7cff;
+  --lavender: #e6e6fa;
+  --slate-blue: #718096;
 
   --dark-blue-transparent: #1b2b3479;
   --gray-blue-transparent: #465b6793;
@@ -409,6 +410,7 @@ p {
  background: linear-gradient(to right, var(--light-blue), var(--cyan));
  border-radius: 4px;
  padding: 4px 12px;
+ font-size: 0.8rem;
  font-weight: 700;
  color: var(--dark-blue);
  cursor: pointer;
