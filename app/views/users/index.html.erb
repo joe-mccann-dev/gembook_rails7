@@ -31,12 +31,12 @@
         <div class="users-heading-button-container">
           <h2 class="users-heading"> Friends</h2>
         </div>
-        <%= button_to "Show Friends", 
+        <%= button_to "Hide Friends", 
             "javascript:void(0)",
             method: :get,
             class: "button",
-            data: { action: "click->show-users#showFriends"} %>
-        <ul class="users-friends hidden" id="friends", data-show-users-target="friends">
+            data: { "show-users-target": "friendsButton", action: "click->show-users#showFriends"} %>
+        <ul class="users-friends" id="friends", data-show-users-target="friends">
           <%= render partial: "friend", collection: @friends %>
         </ul>
       <% else %>
@@ -51,7 +51,7 @@
             "javascript:void(0)",
             method: :get,
             class: "button",
-            data: { action: "click->show-users#showUsers", "show-users-target": "usersLink" }%>
+            data: { "show-users-target": "usersButton", action: "click->show-users#showUsers" }%>
         <ul class="users-friends hidden" id="other-users", data-show-users-target="users">
           <%= render partial: "user", collection: @users %>
         </ul>
