@@ -15,7 +15,8 @@ RSpec.describe "DeleteComments", type: :system do
     it 'allows them to delete it from the Posts#index page' do
       visit user_path(user)
       post_content = 'This is a post that will be commented on.'
-  
+
+      click_on 'Show Post Form'
       fill_in 'post_content', with: post_content
       
       click_on 'Post'

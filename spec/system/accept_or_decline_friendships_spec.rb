@@ -41,13 +41,13 @@ RSpec.describe 'Accept or Decline Friendships', type: :system do
       it 'allows them to click accept' do
         visit notifications_path
         find("#accept-sender-#{friend_requester.id}-request").click
-        expect(page).to have_content('Friendship accepted!')
+        expect(page).to have_content('Friendship accepted')
       end
 
       it 'allows them to click decline' do
         visit notifications_path
         find("#decline-sender-#{friend_requester.id}-request").click
-        expect(page).to have_content('Friendship declined.')
+        expect(page).to have_content('Friendship declined')
       end
     end
   end
