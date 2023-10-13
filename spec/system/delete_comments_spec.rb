@@ -52,9 +52,13 @@ RSpec.describe "DeleteComments", type: :system do
       post = user.posts.first
 
       comment_content = 'This is that comment that I promised.'
-      click_on "Comment"
+      click_on 'Comment'
 
-      fill_in "post-#{post.id}-comment", with: comment_content
+      # Wait for the comment field to become available
+      comment_field_id = "post-#{post.id}-comment"
+      find("##{comment_field_id}", wait: 10)
+    
+      fill_in comment_field_id, with: comment_content
       find("#submit-#{post.id}").click
 
       expect(page).to have_content(comment_content)
