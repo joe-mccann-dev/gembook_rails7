@@ -369,7 +369,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selenium-webdriver (4.13.1)
+    selenium-webdriver (4.14.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
@@ -449,13 +449,12 @@ DEPENDENCIES
   rails (~> 7.0.8)
   rspec-rails
   sassc-rails
-  selenium-webdriver
   sprockets-rails
   stimulus-rails
   turbo-rails
   tzinfo-data
   web-console
-  webdrivers
+  webdrivers (>= 4.0)
 
 RUBY VERSION
    ruby 3.2.2p53
