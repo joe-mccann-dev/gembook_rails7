@@ -13,6 +13,6 @@
   <% if id.match?(/^.*reply$/)%>
     <%= f.submit "Reply", id: "submit-#{commentable.id}" %>
   <% else %>
-    <%= f.submit "Comment", id: "submit-#{commentable.id}" %>
+    <%= f.submit "Comment on Post", id: "submit-#{commentable.id}" %>
   <% end %>
 <% end %>
