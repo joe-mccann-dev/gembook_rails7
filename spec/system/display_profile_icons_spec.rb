@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "DisplayProfileIcons", type: :system do
   before do
-    driven_by(:selenium_headless)
+    driven_by(:selenium)
   end
 
   let!(:user) { User.create(first_name: 'abcde', last_name: 'wxzy', email: 'abcde@wxzy.com', password: 'foobar') }
