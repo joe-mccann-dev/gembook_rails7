@@ -19,10 +19,11 @@ RSpec.describe "UnfriendFriend", type: :system do
       end
   
       click_on "Sign out"
-      login_as(other_user, scope: :user)
-
+      fill_in "user_email", with: other_user.email
+      fill_in "user_password", with: other_user.password
+      click_on "Log in"
+      expect(page).to have_content("Recent Posts")
       visit notifications_path
-      sleep(3)
       find("body", text: "new friend request")
       click_on "Accept"
 

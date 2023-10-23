@@ -21,7 +21,6 @@ RSpec.describe "UserWelcomeEmails", type: :system do
     fill_in :user_password_confirmation, with: user.password
     click_on "Sign up"
     expect(page).to have_content("Welcome")
-    sleep(1)
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
@@ -30,7 +29,6 @@ RSpec.describe "UserWelcomeEmails", type: :system do
     visit new_user_registration_path
     click_on 'Sign in with GitHub'
     expect(page).to have_content("Welcome")
-    sleep(1)
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
@@ -40,7 +38,6 @@ RSpec.describe "UserWelcomeEmails", type: :system do
     click_on 'Sign in with GitHub'
     expect(page).to have_content("Welcome")
     current_delivery_count = 1
-    sleep(1)
     expect(ActionMailer::Base.deliveries.count).to eq(current_delivery_count)
     click_on "Sign out"
     click_on 'Sign in with GitHub'

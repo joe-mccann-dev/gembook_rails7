@@ -18,13 +18,19 @@ RSpec.describe 'Accept or Decline Friendships', type: :system do
         find("#friend-#{user.id}").click
       end
       
-      find('.logout-link').click
+      click_on "Sign out"
       login_as(user, scope: :user)
 
       visit users_path
     end
 
     it 'shows them the notification' do
+      click_on "Sign out"
+      fill_in "user_email", with: user.email
+      fill_in "user_password", with: user.password
+      click_on "Log in"
+      expect(page).to have_content("Recent Posts")
+      
       visit notifications_path
       expect(page).to have_css(".notifications-bell")
       expect(page).to have_content('new friend request')

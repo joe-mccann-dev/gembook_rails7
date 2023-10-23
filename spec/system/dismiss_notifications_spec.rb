@@ -22,10 +22,12 @@ RSpec.describe "DismissNotifications", type: :system do
       end
       
       click_on "Sign out"
-      login_as(user, scope: :user)
+      fill_in "user_email", with: user.email
+      fill_in "user_password", with: user.password
+      click_on "Log in"
+      expect(page).to have_content "Recent Posts"
       visit notifications_path
 
-      sleep(1)
       expect(page).to have_button("Accept")
       expect(page).to have_button("Decline")
 

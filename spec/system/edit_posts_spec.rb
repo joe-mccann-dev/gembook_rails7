@@ -51,7 +51,7 @@ RSpec.describe "EditPosts", type: :system do
       click_on "edit post"
       fill_in "post_content", with: "this is an edited post"
       click_on "Post"
-
+      sleep(5)
       find("body", text: "this is an edited post")    
       expect(page).to have_content("this is an edited post")
     end
