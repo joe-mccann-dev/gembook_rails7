@@ -8,7 +8,7 @@ gem "aws-sdk-s3", require: false
 gem 'active_storage_validations'
 gem 'activeadmin'
 gem 'devise'
-gem 'figaro'
+gem 'figaro', git: 'https://github.com/laserlemon/figaro.git'
 gem 'kaminari'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
