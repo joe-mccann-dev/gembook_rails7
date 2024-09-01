@@ -83,7 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: rails_facebook_production
-  username: rails_facebook
-  password: <%= ENV['RAILS_FACEBOOK_DATABASE_PASSWORD'] %>
+  database: gembook_production
+  username: gembook
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
