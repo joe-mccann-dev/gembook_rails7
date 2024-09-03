@@ -1,30 +1,35 @@
-  import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus"
 
-  export default class extends Controller {
+export default class extends Controller {
 
-    static targets = ["textArea", "fileInput"];
+  static targets = ["textArea", "fileInput"];
 
-    validate(event) {
-        event.preventDefault();
+  validate(event) {
+    event.preventDefault();
 
-        const text = this.textAreaTarget.value;
-        const file = this.fileInputTarget.files[0];
+    const text = this.textAreaTarget.value;
+    const file = this.fileInputTarget.files[0];
 
-        if (!text.trim() && !file) {
-          alert("Please enter text or submit text with an attached image");
-          return;
-        }
-        
-        if (text.trim().length < 10 && !file) {
-          alert("Please make text posts 10 or more characters");
-          return;
-        }
-
-        if (text.trim().length < 10 && file) {
-          alert("Please include 10 or more text characters with your image post.");
-          return;
-        }
-        
-        this.element.requestSubmit();
+    if (!text.trim() && !file) {
+      alert("Please enter text or submit text with an attached image");
+      return;
     }
+
+    if (text.trim().length < 10 && !file) {
+      alert("Please make text posts 10 or more characters");
+      return;
+    }
+
+    if (text.trim().length < 10 && file) {
+      alert("Please include 10 or more text characters with your image post.");
+      return;
+    }
+
+    if (file && file.size > 1024 * 1024) {
+      alert("Image file must be less than 1MB. Try compressing with free online tools first");
+      return;
+    }
+
+    this.element.requestSubmit();
   }
+}
