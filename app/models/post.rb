@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   validates :image, attached: true,
                     content_type: %w[image/png image/jpg image/jpeg],
-                    size: { less_than: 10.megabytes, message: 'image must be less than 10MB' },
+                    size: { less_than: 1.megabytes, message: 'image must be less than 1MB. Try compressing first' },
                     unless: proc { |post| post.image.blank? }
 
   validates :content, presence: true,
