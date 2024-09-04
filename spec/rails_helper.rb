@@ -31,8 +31,11 @@ rescue ActiveRecord::PendingMigrationError => e
 end
 RSpec.configure do |config|
   
-  Webdrivers::Chromedriver.required_version = "103.0.5060.53"
-  Selenium::WebDriver.logger.ignore(:browser_options)
+  Webdrivers::Chromedriver.update
+  config.before(:each, type: :system) do
+    driven_by :selenium, using: :chrome, screen_size: [1400, 1400]
+  end
+
   config.include Warden::Test::Helpers
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

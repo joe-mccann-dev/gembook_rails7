@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Adding Friends', type: :system do
-  before do
-    driven_by(:selenium)
-  end
 
   let!(:user) { User.create(first_name: 'john', last_name: 'smith', email: 'john@smith.com', password: 'foobar') }
   let!(:other_user) { User.create(first_name: 'other', last_name: 'user', email: 'other@user.com', password: 'foobar') }

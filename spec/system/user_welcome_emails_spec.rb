@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "UserWelcomeEmails", type: :system do
-  before do
-    driven_by(:selenium)
-  end
 
   let!(:user) { User.new(first_name: 'abcde3456fg', last_name: 'hijklmno', email: 'abcdefg@hijklmno.com', password: '123456')}
 

@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "DeletePosts", type: :system do
-  before do
-    driven_by(:selenium)
-  end
 
   let!(:user) { User.create(first_name: 'foo', last_name: 'bar', email: 'foo@bar.com', password: 'foobar') }
 

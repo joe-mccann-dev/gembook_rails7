@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "SearchUsers", type: :system do
-  before do
-    driven_by(:selenium)
-  end
-
+  
   let!(:user) { User.create(first_name: 'Thomas', last_name: 'Jefferson', email: 'thomas@jefferson.com', password: 'foobar') }
   let!(:other_user) { User.create(first_name: 'John', last_name: 'Hancock', email: 'john@hancock.com', password: 'foobar') }
 

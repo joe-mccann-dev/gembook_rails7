@@ -3,9 +3,6 @@ require 'rails_helper'
 include UsersHelper
 
 RSpec.describe "LikePosts", type: :system do
-  before do
-    driven_by(:selenium)
-  end
 
   let!(:user) { User.create(first_name: 'Foo', last_name: 'Bar', email: 'foo@bar.com', password: 'foobar') }
   let!(:liker) { User.create(first_name: 'Post', last_name: 'Liker', email: 'post@liker.com', password: 'foobar') }

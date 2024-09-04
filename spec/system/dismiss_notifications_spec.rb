@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "DismissNotifications", type: :system do
-  before do
-    driven_by(:selenium)
-  end
+
 
   let!(:friend_requester) { User.create(first_name: 'notified', last_name: 'user', email: 'notified@user.com', password: 'foobar') }
   let!(:user) { User.create(first_name: 'foo', last_name: 'bar', email: 'foo@bar.com', password: 'foobar') }

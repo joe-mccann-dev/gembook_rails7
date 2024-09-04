@@ -3,9 +3,6 @@ require 'rails_helper'
 include UsersHelper
 
 RSpec.describe 'LikeNotifications', type: :system do
-  before do
-    driven_by(:selenium)
-  end
 
   let!(:user) { User.create(first_name: 'foo', last_name: 'bar', email: 'foo@bar.com', password: 'foobar') }
   let!(:other_user) { User.create(first_name: 'john', last_name: 'smith', email: 'john@smith.com', password: 'foobar') }

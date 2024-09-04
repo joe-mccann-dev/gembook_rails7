@@ -85,7 +85,6 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
-  gem 'webdrivers', '>= 4.0'
 
   gem 'guard'
   gem 'guard-rspec', require: false
@@ -96,3 +95,5 @@ end
 group :test, :development do
   gem 'rspec-rails'
 end
+
+gem "webdrivers", "~> 5.3"

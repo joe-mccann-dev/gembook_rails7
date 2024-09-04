@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "UpdateUsers", type: :system do
-  before do
-    driven_by(:selenium)
-  end
 
   let!(:registered_with_email) { User.create(first_name: 'foo', last_name: 'bar', email: 'foo@bar.com', password: 'foobar') }
   let!(:registered_with_github) { User.create(provider: 'github', uid: '123456789', first_name: 'github', last_name: 'user', email: 'github@user.com', password: 'github') }
