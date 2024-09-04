@@ -2,7 +2,12 @@ module NotificationsManager
   private
 
   def send_notification(args = {})
-    current_user.sent_notifications.create(args)
+    # send_friend_request_job calls this with me, the application developer, as :sender
+    if args[:sender]
+      args[:sender].sent_notifications.create(args)
+    else
+      current_user.sent_notifications.create(args)
+    end
   end
 
   def update_notification(args = {})

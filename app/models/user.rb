@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  # send each new user a friend request from me, the application developer
+  after_create :enqueue_friend_request
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -176,5 +178,9 @@ class User < ApplicationRecord
     receiver_ids.to_h do |id|
       [id, friendships.find { |f| f.receiver_id == id }]
     end
+  end
+
+  def enqueue_friend_request
+    SendFriendRequestJob.perform_later(self.id)
   end
 end
