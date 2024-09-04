@@ -9,6 +9,7 @@ Rails.application.configure do
     # default host for test
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :letter_opener
   
   # configure omniauth for integration testing
   OmniAuth.config.test_mode = true

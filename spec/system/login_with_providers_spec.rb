@@ -13,7 +13,7 @@ RSpec.describe "LoginWithProviders", type: :system do
 
       context 'valid credentials' do
         it 'allows them to login with GitHub' do
-          click_link 'Sign in with GitHub'
+          click_button 'Sign in with GitHub'
           expect(page).to have_content('Successfully authenticated from Github account')
           expect(page).to have_css('.logout-link')
         end
@@ -21,7 +21,7 @@ RSpec.describe "LoginWithProviders", type: :system do
         context 'User is already registered via Devise' do
           it 'redirects with a flash notice' do
             OmniAuth.config.add_mock(:github, {info: { email: existing_user.email, name: existing_user.full_name, image: 'https://via.placeholder.com/400' } })
-            click_link 'Sign in with GitHub'
+            click_button 'Sign in with GitHub'
             expect(page).to have_content('Account email is already registered with this site.')
             expect(page.current_path).to eq(new_user_registration_path)
           end
@@ -34,7 +34,7 @@ RSpec.describe "LoginWithProviders", type: :system do
         end
 
         it 'fails and redirects' do
-          click_link 'Sign in with GitHub'
+          click_button 'Sign in with GitHub'
           expect(page).to have_link 'Sign up'
           expect(page).to_not have_link 'Sign out'
         end
