@@ -1,5 +1,8 @@
 # README
 
+- This app is a re-write of the Rails 6 version found here: https://github.com/joe-mccann-dev/gembook
+- Except for installation, most of the original README is still applicable
+
 ## Installation
 
 1. `bundle install`
